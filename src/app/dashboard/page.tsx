@@ -1,9 +1,24 @@
 "use client";
 import { useAuthFetch } from "@/hooks/privFetch";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const Dashboard = () => {
   const authFetch = useAuthFetch();
+  const [trends, setTrends] = useState([]);
+
+  useEffect(() => {
+    const fetchTrends = async () => {
+      try {
+        const res = await authFetch("/trends");
+        console.log("trends", res.trends);
+        setTrends(res.trends);
+      } catch (error) {
+        console.log("error", error);
+      }
+    };
+    fetchTrends();
+  }, []);
+
   const handletweet = async () => {
     try {
       const tweet = await authFetch("/tweets", {
@@ -18,6 +33,7 @@ const Dashboard = () => {
       console.log("error", error);
     }
   };
+
   return (
     <div>
       <button
