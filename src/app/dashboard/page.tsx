@@ -23,7 +23,7 @@ const Dashboard = () => {
     try {
       const tweet = await authFetch("/tweets", {
         method: "POST",
-        body: JSON.stringify({ tweet: "Hello World" }),
+        body: JSON.stringify({ tweet: "Hello Worldd" }),
         headers: {
           "Content-Type": "application/json",
         },
@@ -42,6 +42,11 @@ const Dashboard = () => {
       >
         post tweet
       </button>
+      <div>
+        {trends.map((trend) => (
+          <div key={trend.trend}>{trend.trend}</div>
+        ))}
+      </div>
     </div>
   );
 };

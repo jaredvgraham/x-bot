@@ -7,6 +7,17 @@ export async function getTwitterOauthToken(userId: string) {
       userId,
       "oauth_x"
     );
+    console.log("res", res.data[0].scopes);
+    console.log("res", res.data[0].scopes);
+    console.log("res", res.data[0].scopes);
+    console.log("res", res.data[0].scopes);
+    console.log("res", res.data[0].scopes);
+    console.log("res", res.data[0].scopes);
+    console.log("res", res.data[0].scopes);
+    console.log("res", res.data[0].scopes);
+    console.log("res", res.data[0].scopes);
+    console.log("res", res.data[0].scopes);
+    console.log("res", res.data[0].scopes);
 
     return res.data[0].token;
   } catch (error) {
